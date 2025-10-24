@@ -55,12 +55,12 @@ namespace IPA.Injector
 
                 Default.Debug("Initializing logger");
 
-                if (AntiPiracy.IsInvalid(Environment.CurrentDirectory))
-                {
-                    Default.Error("Invalid installation; please buy the game to run BSIPA.");
+                //if (AntiPiracy.IsInvalid(Environment.CurrentDirectory))
+                //{
+                //    Default.Error("Invalid installation; please buy the game to run BSIPA.");
 
-                    return;
-                }
+                //    return;
+                //}
 
                 EnsureDirectories();
 
