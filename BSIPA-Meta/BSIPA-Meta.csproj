@@ -34,6 +34,7 @@
     <ProjectReference Include="..\IPA\IPA.csproj" ReferenceOutputAssembly="false">
       <SetConfiguration>Configuration=$(NoVerboseConfig)</SetConfiguration>
       <SetPlatform>Platform=AnyCPU</SetPlatform>
+      <SetTargetFramework>TargetFramework=net472</SetTargetFramework>
       <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
     </ProjectReference>
     <ProjectReference Include="..\IPA.Injector\IPA.Injector.csproj" ReferenceOutputAssembly="false">
