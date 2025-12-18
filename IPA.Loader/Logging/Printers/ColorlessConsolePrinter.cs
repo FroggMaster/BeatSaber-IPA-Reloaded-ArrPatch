@@ -24,7 +24,7 @@ namespace IPA.Logging.Printers
         {
             if (((byte)level & (byte)StandardLogger.PrintFilter) == 0) return;
             foreach (var line in message.Split(new[] { "\n", Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
-                Console.WriteLine(Logger.LogFormat, line, logName, time, level.ToString().ToUpper());
+                Console.WriteLine(Logger.LogFormat, line, logName, time, level.ToString().ToUpperInvariant());
         }
     }
 }

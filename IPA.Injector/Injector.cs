@@ -9,6 +9,7 @@ using Mono.Cecil;
 using Mono.Cecil.Cil;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -38,7 +39,8 @@ namespace IPA.Injector
             _ = args;
             try
             {
-                CommandLineParser.ParseCommandLine(Environment.GetCommandLineArgs());
+                args = Environment.GetCommandLineArgs();
+                CommandLineParser.ParseArguments(args);
 
                 SetupLibraryLoading();
 
@@ -61,6 +63,8 @@ namespace IPA.Injector
 
                 //    return;
                 //}
+
+                WriteDebugLogs(args);
 
                 EnsureDirectories();
 
@@ -91,6 +95,15 @@ namespace IPA.Injector
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private static void WriteDebugLogs(string[] args)
+        {
+            var runtime = OpenXRHelper.GetOpenXRRuntime();
+            Default.Debug($"Command-line: \"{string.Join(" ", args)}\"");
+            Default.Debug($"Current time: {DateTimeOffset.Now}");
+            Default.Debug($"Current culture: {CultureInfo.CurrentCulture.Name}");
+            Default.Debug($"Current OpenXR runtime: {runtime ?? "null"}, exists: {File.Exists(runtime)}");
         }
 
         private static void EnsureDirectories()

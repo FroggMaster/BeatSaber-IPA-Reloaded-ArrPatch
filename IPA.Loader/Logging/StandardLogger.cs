@@ -379,7 +379,7 @@ namespace IPA.Logging
                             { // manually adding to the queue instead of using Warn() because calls to the logger are suspended here
                                 Level = Level.Warning,
                                 Logger = loggerLogger,
-                                Message = $"{loggerLogger.logName.ToUpper()}: Messages omitted to improve performance",
+                                Message = $"{loggerLogger.logName.ToUpperInvariant()}: Messages omitted to improve performance",
                                 Time = Utils.CurrentTime()
                             });
 

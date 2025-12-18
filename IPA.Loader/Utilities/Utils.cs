@@ -113,7 +113,7 @@ namespace IPA.Utilities
             if (target is null)
                 throw new ArgumentNullException(nameof(target));
 
-            if (source.FullName.ToUpperInvariant() == target.FullName.ToUpperInvariant())
+            if (source.FullName.Equals(target.FullName, StringComparison.OrdinalIgnoreCase))
             {
                 return;
             }
